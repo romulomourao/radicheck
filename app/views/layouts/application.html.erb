@@ -14,10 +14,23 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body id="page-top">
+  <body id="page-top" class="r-bg-body">
     <div id="wrapper">
-      <%= render 'shared/sidebar' %>
-      <%= yield %>
+
+      <% if devise_controller? %>
+        <%= yield %>
+      <% else %>
+        <%= render 'shared/sidebar' %>
+
+        <div id="content-wrapper" class="d-flex flex-column">
+          <div id="content">
+            <%= render 'shared/navbar' %>
+            <%= yield %>
+            <%= render 'shared/footer' %>
+          </div>
+        </div>
+      <% end %>
+
     </div>
 
     <%= javascript_pack_tag 'vendor', 'data-turbolinks-track': 'reload' %>

@@ -23,7 +23,7 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import '../style/teste'
+import '../style';
 console.log('teste')
 //import './home';
 // import 'chart.js';
