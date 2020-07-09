@@ -15,6 +15,9 @@ require("channels")
 // require("jquery")
 // require("jquery.easing")
 
+// Stimulus config
+import './stimulus';
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

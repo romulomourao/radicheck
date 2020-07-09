@@ -1,0 +1,11 @@
+<tr>
+  <td><%= patient.cpf %></td>
+  <td><%= patient.name %></td>
+  <td>
+    <span class="badge badge-primary badge-pill">
+      <%= [1,2,3,4,5,6].sample %></td>
+    </span>
+  <td>
+    <%= link_to "Ver mais", patient_path(patient), class: 'btn btn-link' %>
+  </td>
+</tr>

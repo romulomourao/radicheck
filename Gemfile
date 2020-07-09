@@ -34,7 +34,13 @@ gem 'rails-i18n', '~> 6.0.0'
 # Authentication
 gem 'devise'
 
+# Pagination
+gem 'kaminari'
+
+gem 'has_scope'
+
 group :development, :test do
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

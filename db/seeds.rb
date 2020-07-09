@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+100.times do
+  Patient.create(
+    name: Faker::Name.name_with_middle,
+    cpf: Faker::IDNumber.unique.brazilian_citizen_number
+  )
+end
