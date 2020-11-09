@@ -1,0 +1,23 @@
+<div class="container">
+
+<div class="row">
+  <div class="col">
+      <h1>Cadastrar exame</h1>
+      <div class="card">
+        <div class="card-body">
+          <%= form_tag '/exames' ,multipart: true, class: 'form-group' do %>
+
+            <% if params[:cpf] %>
+              <%= hidden_field_tag :cpf, params[:cpf] %>
+            <% else %>
+              <%= text_field_tag :cpf, nil, class: 'w-25 form-control mb-3', placeholder: 'CPF do paciente' %>
+            <% end %>
+
+
+            <%= file_field_tag "file", class: 'form-control-file' %>
+            <div class="mt-5"><%= submit_tag 'Cadastrar', class: 'btn btn-primary' %></div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>

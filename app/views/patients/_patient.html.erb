@@ -3,7 +3,7 @@
   <td><%= patient.name %></td>
   <td>
     <span class="badge badge-primary badge-pill">
-      <%= [1,2,3,4,5,6].sample %></td>
+      <%= patient.exams.size %></td>
     </span>
   <td>
     <%= link_to "Ver mais", patient_path(patient), class: 'btn btn-link' %>

@@ -10,6 +10,11 @@ pt-BR:
       patient:
         one: paciente
         other: pacientes
+    attributes:
+      exams/base:
+        modalities:
+          nm: Medicina Nuclear
+          dx: Radiografia Digital
   views:
     pagination:
       first: "&laquo; Primeiro"
@@ -237,6 +242,7 @@ pt-BR:
     am: ''
     formats:
       default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      date_only: "%d/%m/%Y"
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
