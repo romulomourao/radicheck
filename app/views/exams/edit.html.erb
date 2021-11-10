@@ -1,0 +1,67 @@
+<div class="exam-page container" data-controller="exams">
+
+<div class="row">
+  <div class="col">
+      <h1>Cadastrar exame</h1>
+      <div class="card">
+        <div class="card-body">
+          <%= form_for @exam, url: exam_path, html: { method: :put }, class: 'form-group' do |f| %>
+          <%- f.object = @exam.becomes(@exam.class)  %>
+            <%= f.label 'Nome de paciente' %>
+            <%= f.text_field :patients_name, class: 'form-control' %></p>
+
+            <%= f.label 'Data de nascimento' %>
+            <%= f.text_field :patients_birth_date, class: 'form-control' %>
+
+            <%= f.label 'ID do paciente' %>
+            <%= f.text_field :patient_id, class: 'form-control' %>
+
+            <%= f.label 'CPF' %>
+            <%= f.text_field :cpf, class: 'form-control' %>
+
+            <%= f.label 'Sexo' %>
+            <%= f.text_field :patients_sex, class: 'form-control' %>
+
+            <%= f.label 'Peso' %>
+            <%= f.text_field :patients_weight, class: 'form-control' %>
+
+
+            <%= f.label 'Data' %>
+            <%= f.text_field :acquisition_date, class: 'form-control' %>
+
+            <%= f.label 'Modalidade' %>
+            <%= f.text_field :modality, class: 'form-control' %>
+
+            <%= f.label 'Desc. do estudo' %>
+            <%= f.text_field :study_description, class: 'form-control' %>
+
+            <%= f.label 'Desc. da série' %>
+            <%= f.text_field :series_description, class: 'form-control' %>
+
+            <%= f.label 'Espessura do corte' %>
+            <%= f.text_field :slice_thickness, class: 'form-control' %>
+
+            <%= f.label 'kVp Tensão' %>
+            <%= f.text_field :kvp, class: 'form-control' %>
+
+            <%= f.label 'Tempo de exposição' %>
+            <%= f.text_field :exposure_time, class: 'form-control' %>
+
+            <%= f.label 'Corrente' %>
+            <%= f.text_field :xray_tube_current, class: 'form-control' %>
+
+            <%= f.label 'Exposição' %>
+            <%= f.text_field :exposure, class: 'form-control' %>
+
+            <%= f.label 'Radionuclídeo' %>
+            <%= f.text_field :radionuclide, class: 'form-control' %>
+
+            <%= f.label 'Atividade injetada' %>
+            <%= f.text_field :radionuclide_total_dose, class: 'form-control' %>
+
+            <div class="mt-5"><%= f.submit 'Salvar', class: 'btn btn-primary' %></div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>

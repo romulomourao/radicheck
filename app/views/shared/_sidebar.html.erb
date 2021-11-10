@@ -11,20 +11,25 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <%= link_to exams_path, class: 'nav-link' do %>
-          <i class="fas fa-fw fa-x-ray"></i>
-          <span>Exames</span>
-          <% end %>
+        <%= link_to root_url, class: 'nav-link' do %>
+          <i class="fas fa-fw fa-home"></i>
+          <span>Dashboard</span></a>
+        <% end %>
       </li>
 
-      <!-- Nav Item - Tables -->
       <li class="nav-item">
         <%= link_to patients_path, class: 'nav-link' do %>
           <i class="fas fa-fw fa-users"></i>
           <span>Pacientes</span></a>
         <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to exams_path, class: 'nav-link' do %>
+          <i class="fas fa-fw fa-x-ray"></i>
+          <span>Exames</span>
+          <% end %>
       </li>
 
       <!-- Divider -->

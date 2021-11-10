@@ -4,7 +4,6 @@
     <title>Radicheck</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= Gon::Base.render_data %>
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,6 +15,7 @@
   </head>
 
   <body id="page-top" class="r-bg-body">
+    <%= Gon::Base.render_data %>
     <div id="wrapper">
 
       <% if devise_controller? %>

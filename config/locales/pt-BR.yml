@@ -10,6 +10,9 @@ pt-BR:
       patient:
         one: paciente
         other: pacientes
+      exams/base:
+        one: exame
+        other: exames
     attributes:
       exams/base:
         modalities:

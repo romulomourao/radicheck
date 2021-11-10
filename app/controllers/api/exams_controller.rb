@@ -5,9 +5,7 @@ module Api
     has_scope :by_patient
 
     def index
-      @exams = collection
-      # render json: @exams, include: ['exam']
-      render json: ExamsBlueprint.render(@exams)
+      render json: ExamsBlueprint.render(collection)
     end
 
     private

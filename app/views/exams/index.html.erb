@@ -1,45 +1,73 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Testes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Cpf</th>
-      <th>Avatar</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- Begin Page Content -->
+<div data-controller="" class="container-fluid">
 
-  <tbody>
-    <% @exams.each do |exam| %>
-      <tr>
-        <td><%= exam.type %></td>
-        <td><%= exam.cpf %></td>
-        <td><%= exam.acquisition_date %></td>
-        <td><%= exam.modality %></td>
-        <td><%= exam.study_description %></td>
-        <td><%= exam.series_description %></td>
-        <td><%= exam.slice_thickness %></td>
-        <td><%= exam.kvp %></td>
-        <td><%= exam.exposure_time %></td>
-        <td><%= exam.xray_tube_current %></td>
-        <td><%= exam.exposure %></td>
-        <td><%= exam.radionuclide %></td>
-        <td><%= exam.radionuclide_total_dose %></td>
-        <td><%= exam.patients_name %></td>
-        <td><%= exam.patient_id %></td>
-        <td><%= exam.patients_sex %></td>
-        <td><%= exam.patients_weight %></td>
-        <td><%= link_to 'Show', exam_path(exam) %></td>
-        <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
-        <td><%= link_to 'Destroy', exam_path(exam), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Exames</h1>
+  </div>
 
-<br>
+  <!-- Content Row -->
 
-<%= link_to 'Novo Exame', new_exam_path %>
+  <div class="row">
+
+    <!-- Area Chart -->
+    <div class="col">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <%= render partial: 'shared/search', locals: {search_path: exams_path, placeholder: 'CPF ou Nome'} %>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID do paciente</th>
+                <th scope="col">Nome do paciente (DICOM)</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Data</th>
+                <th scope="col">Modalidade</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <% if @exams.present? %>
+                <% @exams.each do |exam| %>
+                  <tr>
+                    <td><%= exam.patient_id %></td>
+                    <td><%= exam.patient.name %></td>
+                    <td><%= exam.cpf %></td>
+                    <td><%= exam.acquisition_date && l(exam.acquisition_date, format: :date_only) %></td>
+                    <td>
+                      <span class="badge badge-primary badge-pill">
+                        <%= modality(exam.modality) %>
+                      </span>
+                    </td>
+                    <td>
+                      <%= link_to "Ver mais", exam_path(exam), class: 'btn btn-link' %>
+                    </td>
+                  </tr>
+                <% end %>
+
+              <% end %>
+
+            </tbody>
+          </table>
+          <div class="d-flex align-items-center justify-content-between">
+            <small><%= page_entries_info @exams %></small>
+            <%= paginate @exams, window: 1 %>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /.container-fluid -->
+
+<%= javascript_pack_tag 'home' %>

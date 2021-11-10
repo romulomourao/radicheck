@@ -1,37 +1,60 @@
-<div class="container">
+<div class="container-fluid">
 
-<div class="row">
-<div class="col">
-    <div class="card p-4">
-        <p id="notice"><%= notice %></p>
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <%= link_to 'Voltar', patient_path(@exam.patient), class: 'btn btn-sm btn-secondary shadow-sm ' %>
+    <a href="<%= edit_exam_path(@exam) %>" class="btn btn-sm btn-primary shadow-sm">
+      <i class="fas fa-pen fa-sm text-white-50"></i>
+      Editar
+    </a>
+  </div>
 
-          <div class="card-body">
-                  <p><b>Nome:</b> <%= @exam.patients_name %></p>
-                  <p><b>Data de nascimento:</b> <%= @exam.patients_birth_date %></p>
-                  <p><b>ID do paciente:</b> <%= @exam.patient_id %></p>
-                  <p><b>Cpf:</b> <%= @exam.cpf %></p>
-                  <p><b>Sexo:</b> <%= @exam.patients_sex %></p>
-                  <p><b>Peso:</b> <%= @exam.patients_weight %></p>
-                  <hr>
-                  <p><b>Data de Aquisição:</b> <%= l(@exam.acquisition_date, format: :date_only) %></p>
-                  <p><b>Modalidade:</b> <%= modality(@exam.modality) %></p>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+  <% end %>
 
-                  <p><b>Descrição do estudo:</b> <%= @exam.study_description %></p>
-                  <p><b>Descrição dá série:</b> <%= @exam.series_description %></p>
-                  <p><b>Espessura de corte:</b> <%= @exam.slice_thickness %></p>
-                  <p><b>kVp (Tensão):</b> <%= @exam.kvp %></p>
-                  <p><b>Tempo de Exposição:</b> <%= @exam.exposure_time %></p>
-                  <p><b>Corrente:</b> <%= @exam.xray_tube_current %></p>
-                  <p><b>Exposição:</b> <%= @exam.exposure %></p>
-                  <p><b>Radionuclídeo:</b> <%= @exam.radionuclide %></p>
-                  <p><b>Atividade injetada (mCi):</b> <%= @exam.radionuclide_total_dose %></p>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card border-left-primary shadow py-2 mb-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-primary text-uppercase">Dados do paciente</div>
+              <hr class="mt-1 mb-4">
+                <p><b>Nome:</b> <%= @exam.patient&.name || '*******' %></p>
+                <p><b>Data de nascimento:</b> <%= @exam.patients_birth_date %></p>
+                <p><b>ID do paciente:</b> <%= @exam.patient_id %></p>
+                <p><b>Cpf:</b> <%= @exam.cpf %></p>
+                <p><b>Sexo:</b> <%= @exam.patients_sex %></p>
+                <p><b>Peso:</b> <%= @exam.patients_weight %></p>
+            </div>
           </div>
-
-      <div class="card-footer">
-          <%= link_to 'Edit', edit_exam_path(@exam) %> |
-          <%= link_to 'Back', testes_path %>
+        </div>
       </div>
     </div>
-</div>
-</div>
+    <div class="col-lg-6">
+      <div class="card border-left-primary shadow py-2 mb-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-primary text-uppercase">Dados do exame</div>
+              <hr class="mt-1 mb-4">
+              <p><b>Data de Aquisição:</b> <%= @exam.acquisition_date && l(@exam.acquisition_date, format: :date_only) %></p>
+              <p><b>Modalidade:</b> <%= modality(@exam.modality) %></p>
+
+              <p><b>Descrição do estudo:</b> <%= @exam.study_description %></p>
+              <p><b>Descrição dá série:</b> <%= @exam.series_description %></p>
+              <p><b>Espessura de corte:</b> <%= @exam.slice_thickness %></p>
+              <p><b>kVp (Tensão):</b> <%= @exam.kvp %></p>
+              <p><b>Tempo de Exposição:</b> <%= @exam.exposure_time %></p>
+              <p><b>Corrente:</b> <%= @exam.xray_tube_current %></p>
+              <p><b>Exposição:</b> <%= @exam.exposure %></p>
+              <p><b>Radionuclídeo:</b> <%= @exam.radionuclide %></p>
+              <p><b>Atividade injetada (mCi):</b> <%= @exam.radionuclide_total_dose %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

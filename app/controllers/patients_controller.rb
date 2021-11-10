@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
 
   before_action :set_patients, only: [:index]
-  before_action :set_patient, only: [:show]
+  before_action :set_patient, only: [:show, :edit, :update]
 
   has_scope :q
 
@@ -17,6 +17,34 @@ class PatientsController < ApplicationController
     })
   end
 
+  def new
+    @patient = Patient.new
+  end
+
+  def edit
+  end
+
+  def create
+    @patient = Patient.new(patient_params)
+    if @patient.save
+      flash[:success] = "Paciente criado com sucesso"
+      redirect_to @patient
+    else
+      flash[:error] = "Algo deu errado"
+      render 'new'
+    end
+  end
+
+  def update
+      if @patient.update_attributes(patient_params)
+        flash[:success] = "Paciente atualizado com sucesso"
+        redirect_to @patient
+      else
+        flash[:error] = "Algo deu errado"
+        render 'edit'
+      end
+  end
+
 
   private
 
@@ -28,5 +56,8 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
   end
 
+  def patient_params
+    params.require(:patient).permit(:name, :cpf)
+  end
 
 end

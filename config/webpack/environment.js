@@ -1,4 +1,5 @@
 const { environment } = require('@rails/webpacker')
+const svelte = require('./loaders/svelte')
 const webpack = require('webpack')
 
 environment.plugins.prepend('Provide',
@@ -8,4 +9,5 @@ environment.plugins.prepend('Provide',
     Popper: ['popper.js', 'default']
   })
 )
+environment.loaders.prepend('svelte', svelte)
 module.exports = environment

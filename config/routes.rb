@@ -13,11 +13,11 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get '/pacientes', as: :patients, to: 'patients#index'
-  get '/pacientes/:id', as: :patient, to: 'patients#show'
+  # get '/pacientes', as: :patients, to: 'patients#index'
+  # get '/pacientes/:id', as: :patient, to: 'patients#show'
   # get 'perfil', as: :user,  to: 'users#edit'
   # patch 'perfil', as: :user,  to: 'users#update'
-
+  resources :patients, path: :pacientes
   resources :exams, path: :exames
 
   resources :users, only: [:edit, :update]

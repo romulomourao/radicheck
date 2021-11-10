@@ -43,6 +43,8 @@ gem 'gon'
 
 gem 'blueprinter'
 
+gem 'rails-erd', group: :development
+
 # Dicom
 gem 'dicom'
 
