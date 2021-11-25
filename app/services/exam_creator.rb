@@ -52,7 +52,6 @@ class ExamCreator
     else
       exam_attributes[:modality] = 1
       ::Exams::DigitalRadiography.new(exam_attributes)
-
     end
 
   end

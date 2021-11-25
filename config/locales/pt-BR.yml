@@ -10,8 +10,10 @@ pt-BR:
       patient:
         one: paciente
         other: pacientes
+        zero: paciente
       exams/base:
         one: exame
+        zero: exame
         other: exames
     attributes:
       exams/base:

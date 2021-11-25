@@ -4,6 +4,9 @@
   <div data-controller="home" class="container-fluid">
 
     <!-- Page Heading -->
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+    <% end %>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
       <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
     </div>
@@ -72,10 +75,6 @@
 
                     <hr>
 
-                    <div class="font-size-2 mb-0 text-gray-800">Cadastre um novo exame para um paciente</div>
-                    <div class="mt-2">
-                      <a href="<%= new_exam_path %>" class=" btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Novo exame</a>
-                    </div>
                   </div>
                 </div>
               </div>

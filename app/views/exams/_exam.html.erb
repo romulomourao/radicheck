@@ -1,5 +1,5 @@
 <tr>
-  <td><%= exam.cpf %></td>
+  <td><%= exam.patient.formatted_cpf %></td>
   <td><%= exam.acquisition_date && l(exam.acquisition_date, format: :date_only) %></td>
   <td>
     <span class="badge badge-primary badge-pill">

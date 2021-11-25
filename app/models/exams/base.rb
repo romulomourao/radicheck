@@ -11,7 +11,7 @@
       has_one :patient_exam, foreign_key: 'exam_id'
       has_one :patient, through: :patient_exam
 
-      scope :q, -> (query) { where("patients_name LIKE ?", "%#{query}%").or(where(cpf: query))}
+      scope :q, -> (query) { where("patients.name LIKE ?", "%#{query}%").or(where(patients: {cpf: CPF.new(query).stripped})).joins(:patient)}
       scope :by_patient, -> (id) {joins(:patient_exam).where(patients_exams: { patient_id: id })}
 
     end

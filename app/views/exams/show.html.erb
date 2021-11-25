@@ -24,7 +24,7 @@
                 <p><b>Nome:</b> <%= @exam.patient&.name || '*******' %></p>
                 <p><b>Data de nascimento:</b> <%= @exam.patients_birth_date %></p>
                 <p><b>ID do paciente:</b> <%= @exam.patient_id %></p>
-                <p><b>Cpf:</b> <%= @exam.cpf %></p>
+                <p><b>Cpf:</b> <%= @exam.patient.formatted_cpf %></p>
                 <p><b>Sexo:</b> <%= @exam.patients_sex %></p>
                 <p><b>Peso:</b> <%= @exam.patients_weight %></p>
             </div>
