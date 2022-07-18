@@ -1,24 +1,7 @@
-# README
+# Radicheck
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Trabalho de conclusão do curso de Sistemas de Informacão
 
-Things you may want to cover:
+Este trabalho propõe um sistema web, o Sistema Web para manter histórico de exposição à radiação em pacientes (RADICHECK), para atender as necessidades do departamento de radiologia do Hospital Universitário Antônio Pedro (HUAP), agilizando o processo e viabilizando o armazenamento dos exames realizados.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ ![](radicheck.png)
