@@ -1,0 +1,12 @@
+<tr>
+  <td><%= exam.patient.formatted_cpf %></td>
+  <td><%= exam.acquisition_date && l(exam.acquisition_date, format: :date_only) %></td>
+  <td>
+    <span class="badge badge-primary badge-pill">
+      <%= modality(exam.modality) %>
+    </span>
+  </td>
+  <td>
+    <%= link_to "Ver mais", exam_path(exam), class: 'btn btn-link' %>
+  </td>
+</tr>

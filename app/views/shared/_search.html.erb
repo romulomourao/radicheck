@@ -1,0 +1,13 @@
+  <!-- Topbar Search -->
+
+  <%= form_tag(search_path, {class: 'd-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search', method: :get}) do %>
+    <div class="input-group">
+      <%= text_field_tag :q, nil, class: 'form-control bg-light small', placeholder: placeholder %>
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="submit">
+          <i class="fas fa-search fa-sm"></i>
+        </button>
+      </div>
+    </div>
+  <% end %>
+

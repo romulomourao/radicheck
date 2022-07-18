@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Radicheck</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="turbolinks-cache-control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body id="page-top" class="r-bg-body">
+    <%= Gon::Base.render_data %>
+    <div id="wrapper">
+
+      <% if devise_controller? %>
+        <%= yield %>
+      <% else %>
+        <%= render 'shared/sidebar' %>
+
+        <div id="content-wrapper" class="d-flex flex-column">
+          <div id="content">
+            <%= render 'shared/navbar' %>
+            <%= yield %>
+            <%#= render 'shared/footer' %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+    <%= javascript_pack_tag 'vendor', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/f287f5590b.js" crossorigin="anonymous"></script>
+
+  </body>
+</html>

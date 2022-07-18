@@ -1,0 +1,71 @@
+
+
+<!-- Begin Page Content -->
+<div data-controller="" class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Exames</h1>
+  </div>
+
+  <!-- Content Row -->
+
+  <div class="row">
+
+    <!-- Area Chart -->
+    <div class="col">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <%= render partial: 'shared/search', locals: {search_path: exams_path, placeholder: 'CPF ou Nome'} %>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Paciente</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Data</th>
+                <th scope="col">Modalidade</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <% if @exams.present? %>
+                <% @exams.each do |exam| %>
+                  <tr>
+                    <td><%= exam.patient.name %></td>
+                    <td><%= exam.patient.formatted_cpf %></td>
+                    <td><%= exam.acquisition_date && l(exam.acquisition_date, format: :date_only) %></td>
+                    <td>
+                      <span class="badge badge-primary badge-pill">
+                        <%= modality(exam.modality) %>
+                      </span>
+                    </td>
+                    <td>
+                      <%= link_to "Ver mais", exam_path(exam), class: 'btn btn-link' %>
+                    </td>
+                  </tr>
+                <% end %>
+
+              <% end %>
+
+            </tbody>
+          </table>
+          <div class="d-flex align-items-center justify-content-between">
+            <small><%= page_entries_info @exams %></small>
+            <%= paginate @exams, window: 1 %>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /.container-fluid -->
+
+<%= javascript_pack_tag 'home' %>

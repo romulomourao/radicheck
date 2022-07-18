@@ -1,0 +1,11 @@
+<tr>
+  <td><%= patient.formatted_cpf %></td>
+  <td><%= patient.name %></td>
+  <td>
+    <span class="badge badge-primary badge-pill">
+      <%= patient.exams.size %></td>
+    </span>
+  <td>
+    <%= link_to "Ver mais", patient_path(patient), class: 'btn btn-link' %>
+  </td>
+</tr>

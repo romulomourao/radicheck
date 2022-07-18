@@ -1,0 +1,22 @@
+<div class="w-50">
+  <% if @patient.errors.any? %>
+    <ul class="list-unstyled">
+    <% @patient.errors.full_messages.each do |message| %>
+      <li class="alert alert-danger"><%= message %></li>
+    <% end %>
+
+    </ul>
+  <% end %>
+  <%= form_for @patient, class: 'form-group' do |f| %>
+    <%= f.label 'Nome do paciente' %>
+    <%= f.text_field :name, class: 'form-control mb-4' %>
+
+    <%= f.label 'CPF' %>
+    <%= f.text_field :cpf, class: 'form-control' %>
+    <div class="mt-5">
+      <%= link_to 'Voltar', :back, class: 'btn btn-secondary shadow-sm mr-2' %>
+      <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+</div>
